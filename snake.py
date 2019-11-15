@@ -2,6 +2,7 @@ import curses
 from curses import KEY_RIGHT, KEY_LEFT, KEY_UP, KEY_DOWN
 from random import randint
 
+
 def jogar():
 
     curses.initscr()
@@ -22,7 +23,7 @@ def jogar():
 
     while key !=27:
         win.border(0)
-        win.addstr(0, 2, 'Score :' +str(score) + ' ')
+        win.addstr(0, 2, 'Pontos :' +str(score) + ' ')
         win.addstr(0, 27, ' SNAKE ')
         win.timeout(int(150 - (len(snake)/5 + len(snake)/10)%120))
 
@@ -62,11 +63,11 @@ def jogar():
         else:
             last = snake.pop()
             win.addch(last[0], last[1], ' ')
-        win.addch(snake[0][0], snake[0][1], '#')
+        win.addch(snake[0][0], snake[0][1], '%')
 
     curses.endwin()
-    print("Thanks for playing!")
-    print("Your score was " + str(score))
+    print("Fim do jogo!")
+    print("Você fez {} pontos!".format(score))
 
 if __name__ == "__main__":
   jogar()
